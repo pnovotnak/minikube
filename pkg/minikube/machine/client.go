@@ -19,6 +19,7 @@ package machine
 import (
 	"os"
 
+	"github.com/Parallels/docker-machine-parallels"
 	"github.com/docker/machine/drivers/virtualbox"
 	"github.com/docker/machine/drivers/vmwarefusion"
 	"github.com/docker/machine/libmachine/drivers/plugin"
@@ -35,6 +36,8 @@ func StartDriver() {
 			plugin.RegisterDriver(virtualbox.NewDriver("", ""))
 		case "vmwarefusion":
 			plugin.RegisterDriver(vmwarefusion.NewDriver("", ""))
+		case "parallels":
+			plugin.RegisterDriver(parallels.NewDriver("", ""))
 		default:
 			glog.Exitf("Unsupported driver: %s\n", driverName)
 		}

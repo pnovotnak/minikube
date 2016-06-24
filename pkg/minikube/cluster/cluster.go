@@ -273,6 +273,8 @@ func createHost(api libmachine.API, config MachineConfig) (*host.Host, error) {
 		driver = d
 	case "vmwarefusion":
 		driver = createVMwareFusionHost(config)
+	case "parallels":
+		driver = createParallelsHost(config)
 	default:
 		glog.Exitf("Unsupported driver: %s\n", config.VMDriver)
 	}

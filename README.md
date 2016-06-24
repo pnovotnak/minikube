@@ -15,7 +15,10 @@ Minikube is a tool that makes it easy to run Kubernetes locally. Minikube runs a
 
 ### Requirements
 
-* [VirtualBox](https://www.virtualbox.org/wiki/Downloads) or [VMware Fusion](https://www.vmware.com/products/fusion) installation
+* A hypervisor, may be one of the following:
+  * [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+  * [VMware Fusion](https://www.vmware.com/products/fusion)
+  * [Parallels desktop Professional Edition](http://www.parallels.com/products/desktop/)
 * VT-x/AMD-v virtualization must be enabled in BIOS
 
 ### Instructions
@@ -25,7 +28,8 @@ See the installation instructions for the [latest release](https://github.com/ku
 ## Quickstart
 
 Here's a brief demo of minikube usage.
-If you want to change the VM driver to VMware Fusion add the `--vm-driver=vmwarefusion` flag to `minikube start`.
+The default hypervisor program is VirtualBox, VMware Fusion or Parallels may be selected by passing
+`--vm-driver=vmwarefusion` or `--vm-driver=parallels` to `minikube start`.
 
 Note that the IP below is dynamic and can change. It can be retrieved with `minikube ip`.
 

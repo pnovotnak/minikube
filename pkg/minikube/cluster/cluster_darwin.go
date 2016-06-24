@@ -17,6 +17,7 @@ limitations under the License.
 package cluster
 
 import (
+	"github.com/Parallels/docker-machine-parallels"
 	"github.com/docker/machine/drivers/vmwarefusion"
 	"github.com/docker/machine/libmachine/drivers"
 	"k8s.io/minikube/pkg/minikube/constants"
@@ -31,5 +32,12 @@ func createVMwareFusionHost(config MachineConfig) drivers.Driver {
 	d.CPU = 1
 	d.SSHPort = 22
 	d.ISO = d.ResolveStorePath("boot2docker.iso")
+	return d
+}
+
+func createParallelsHost(config MachineConfig) drivers.Driver {
+	d := parallels.NewDriver(constants.MachineName, constants.Minipath)
+	d.Boot2DockerURL = config.MinikubeISO
+	d.Memory = config.Memory
 	return d
 }

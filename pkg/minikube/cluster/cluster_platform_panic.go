@@ -23,3 +23,7 @@ import "github.com/docker/machine/libmachine/drivers"
 func createVMwareFusionHost(config MachineConfig) drivers.Driver {
 	panic("vmwarefusion not supported")
 }
+
+func createParallelsHost(config MachineConfig) drivers.Driver {
+	panic("parallels not supported")
+}
